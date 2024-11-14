@@ -35,6 +35,14 @@ public class StandardHealth : MonoBehaviour, IHealth
             Die();
     }
 
+    public void TakeHealth(int amount)
+    {
+        currentHealth += amount;
+
+        OnHPPctChanged(CurrentHpPct);
+    }
+
+
     private void Die()
     {
         OnDied();

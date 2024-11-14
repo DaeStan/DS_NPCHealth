@@ -41,6 +41,18 @@ public class NumberOfHitsHealth : MonoBehaviour, IHealth
         }
     }
 
+    public void TakeHealth(int amount)
+    {
+        if (canTakeDamage)
+        {
+            StartCoroutine(InvunlerabilityTimer());
+
+            hitsRemaining++;
+
+            OnHPPctChanged(CurrentHpPct);
+        }
+    }
+
     private IEnumerator InvunlerabilityTimer()
     {
         canTakeDamage = false;
